@@ -42,3 +42,27 @@ Let's say I deal with a Monolithic architecture. All the APIs, business logic, e
 
 ...
 
+A client makes a request (via HTTPS) directly to the API GW only. When the client wants to retrive the product info, I can define that in __Routing__. A client asks to give them (requests) the Product API, so that they can access the Product. So the Routing defines that if the client requests Product, the request is only sent to the Product APIs. Then the response is sent back to the client.
+
+The same thing happens, when a client requests the Cart APIs. When the client requests for the Cart, Routing decides that the request gets sent to the Cart API. Routing gets the response, forwards it back with the cart info. And it spins up in a form of a web [browser] app.
+
+__Feature # 2__
+- Routing
+
+Suppose the app is getting popular and profitable. A big crowd uses it. I offer a couple of  extra features during a holiday season: trends, deals, discounts, etc. When Client sends many requests, it can cause a delay. The more requests, the more delay.
+
+...
+
+I can improce this case by adding another component called __Adaptor__ at the API GW level. My developers always say thay they add the Adaptor at the API GW level. Adaptor decides how many requests to handle.
+
+Improved Diagram:
+...
+
+Adaptor takes the Request from the Client/Device. Client sends Request to the Adaptor via one single network call. It's faster than before, when Client sent 4 different requests. Now Client sends 1 single request over the network to the API GW. The Gateway makes a number of calls, consolidates the response, then gives it back to the Client side in the form of a Response.
+
+__Feature # 3__
+- Adaptor
+
+Let the Adaptor decide how many calls to make and to which Microservices. Not from the Client side. Client send an n-number of requests (10, 20 ... 100), the API GW decides how to send them. Client just clicks on Homepage, Trends, Deals, etc.
+
+
