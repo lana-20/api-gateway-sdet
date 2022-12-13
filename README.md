@@ -65,4 +65,54 @@ __Feature # 3__
 
 Let the Adaptor decide how many calls to make and to which Microservices. Not from the Client side. Client send an n-number of requests (10, 20 ... 100), the API GW decides how to send them. Client just clicks on Homepage, Trends, Deals, etc.
 
+I can improve my design/diagram. I have the Static Html Homepage [Microservice], which is not a part of the Business Logic. It's a simple homepage, static content. I can decommission the Static Content Html from the Microservices Web App site and define/place it at the aPI GW level. No need to call the actial app server.
 
+...
+
+__Feature # 4__
+- Static Content stored at the API GW level
+
+...
+
+
+Client sends Request via API GW and gets the response back form the 'Trending Products' Miscroservice - the 50 products that are available between 10-11 am. But what if the Client send another Request at 10:10, then another at 10:15 am and 10:20 am, and so forth (multiple times until 11 am). Every time the Client sends the Request, they hit this particular Microservice and a Response back. It's unnecessary, because every time the product count remains the same. The next list of available trending product becomes available after one hour. Once this hour expires at 11 am, I get the next list with the next 50 products available.
+
+What to do? Set __Caching__ at the API GW level. The 1st time the Request is sent to this particular Microservice, the Response is sent back, and the 50 products are stored in the Cache, eg, at 10 am. After 10 minutes, at 10:10 am, I send another request to the API GW. The Gateway has the intelligence to understand that the Client requests a list of the current Trending Products. It does not call the Microservice any longer. There's no point in calling the same Microservice again and again (with the same request), while the product output remains the same. It's better to retrieve the Response from the Cache only. 
+
+This is the biggest advantage of Caching. The same Response is given back the Client up until 11 am. I can define/configure a threshold timeout of 1 hour at the API GW level. After 1 hour, the  Cache with 50 products gets deleted/detroyed. At 11 am the Request is sent again to the API GW. Then again this particular Microservice gets called, retrieving the next 50 Trending Products. And again the new 50 products get stored in the Cache for the next 1 hour until 12 pm.
+
+The Cache is always handled at the API GW level, not at the Business Logic/WebApp/Microservice level.
+
+__Feature #5__
+- Caching
+
+Example: In my web app I provide different videos. There are some video APIs, meaning _fast_ streaming APIs and _slow_ streaming APIs.
+
+...
+
+Client # 1 sends a Request from a Mobile device. What to do? Define Routing at the device level. When Request comes via Mobile, I need a low-quality video. The Low Quality video Microservice responds back and provides the Client with a low-quality video  on their phone (mobile device).
+
+Client # 2 wants an API and sends a Request from a Desktop. The Router determines that the request comes from the desktop device, and the Desktop route is taken. The Router defines that desktop request should go to (call) the HD Quality content [microservice], where HD-quality videos are available. IT responds back and routes over to the Desktop Client. Then the Desktop [browser] Client is able to view high-quality videos.
+
+Router defines which  route to take - Mobile or Desktop? I configure this at the API GW level.
+
+__Feature # 7__
+- Load Balancer
+
+...
+
+__Feature # 8__
+- Protocol Adaptor
+
+...
+
+
+__Feature # 9__
+- Monitoring
+
+...
+
+__Feature # 10__
+- Billing
+
+...
