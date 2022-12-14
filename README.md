@@ -54,7 +54,7 @@ __Feature # 3__
 
 Suppose the app is getting popular and profitable. A big crowd uses it. I offer a couple of  extra features during a holiday season: trends, deals, discounts, etc. When Client sends many requests, it can cause a delay. The more requests, the more delay.
 
-...
+<img src="https://user-images.githubusercontent.com/70295997/207515462-9ddaab22-d1eb-40fc-a9a6-acec5d288986.png" width=900>
 
 I can improce this case by adding another component called __Adaptor__ at the API GW level. My developers always say thay they add the Adaptor at the API GW level. Adaptor decides how many requests to handle.
 
