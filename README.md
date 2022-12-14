@@ -43,7 +43,7 @@ __Feature # 2__
 
 Let's say I deal with a Monolithic architecture. All the APIs, business logic, etc. are available under one machine/system/component. I convert my Monolithic architecture into Microservices, tiny services available for each feature. 4 segregated Microservices are available.
 
-<img src="https://user-images.githubusercontent.com/70295997/207511489-23693172-6051-4c9d-b3e0-bf8272ab045c.png" width=900>
+<img src="https://user-images.githubusercontent.com/70295997/207512111-0818a831-adb9-4bc3-80ed-4386c5e732e4.png" width=900>
 
 A client makes a request (via HTTPS) directly to the API GW only. When the client wants to retrive the product info, I can define that in __Routing__. A client asks to give them (requests) the Product API, so that they can access the Product. So the Routing defines that if the client requests Product, the request is only sent to the Product APIs. Then the response is sent back to the client.
 
