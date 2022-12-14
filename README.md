@@ -96,8 +96,7 @@ Example: In my web app I provide different videos. There are some video APIs, me
 
 Client # 1 sends a Request from a Mobile device. What to do? Define Routing at the device level. When Request comes via Mobile, I need a low-quality video. The Low Quality video Microservice responds back and provides the Client with a low-quality video  on their phone (mobile device).
 
-Client # 2 wants an API and sends a Request from a Desktop. The Router determines that the request comes from the desktop device, and the Desktop route is taken. The Router defines that desktop request should go to (call) the HD Quality content [
-], where HD-quality videos are available. IT responds back and routes over to the Desktop Client. Then the Desktop [browser] Client is able to view high-quality videos.
+Client # 2 wants an API and sends a Request from a Desktop. The Router determines that the request comes from the desktop device, and the Desktop route is taken. The Router defines that desktop request should go to (call) the HD Quality content [MS], where high-quality videos are available. IT responds back and routes over to the Desktop Client. Then the Desktop [browser] Client is able to view high-quality videos.
 
 Router defines which  route to take - Mobile or Desktop? I configure this at the API GW level.
 
