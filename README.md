@@ -133,11 +133,9 @@ __Feature # 10__
 - Billing
 Let's say, my app got slashdotted. Some external apps now want to use my APIs. Eg, a /payment MS, which is stable and popular on the market. Other companies/web apps want to use this particular /payment API/MS.
 
-...
+<img src="https://user-images.githubusercontent.com/70295997/207674043-f8aa5554-097f-4814-98de-46d5c315bd32.png" width=900>
 
-I go to a cloud of my choice. On their marketplace I define Billing at the API GW level. Eg, I have a small company, but I don't own any GW APIs, I simply send my Requests to Billing, and the API GW forwards the calls to the /payment GW APIs and back. The Billing adaptor set at the API GW level charges the Client.
-
-...
+I go to a cloud of my choice. On their marketplace I define Billing at the API GW level. Eg, there's a small company, which doesn't own any GW APIs. It simply sends Requests to Billing, and the API GW forwards the calls to the /payment GW APIs and back. The Billing adaptor set at the API GW level charges the Client.
 
 Example: My /payment API got famous. My Clients' payments happen through my APIs. And whenever a client send a Request, they have to pay $5.
 
