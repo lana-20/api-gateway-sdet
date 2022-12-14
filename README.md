@@ -117,9 +117,10 @@ The MAANG companies do not release 100% of their traffic to the new feature or s
 
 __Feature # 8__
 - Protocol Adaptor
-...
 
-Another small feature is the Protocol Adaptor for HTTP conversion. Define Protocol Adaptor at the API GW level. MSs get Requests in the form of HTTP1 only. In my app, all the backend services can be accessed via HTTP1 protocol. When the Request is sent from Client 1 (C1) in the form of HTTP2, it arrives at the Protocol Adaprot at the API GW level, which converts all the old protocols into the new ones.
+<img src="https://user-images.githubusercontent.com/70295997/207668044-d53fcaf8-ba59-456c-ab76-8079031cc6d2.png" width=900>
+
+Another small feature is the Protocol Adaptor for HTTP conversion. Define Protocol Adaptor at the API GW level. MSs get Requests in the form of HTTP1 only. In my app, all the backend services can be accessed via HTTP1 protocol. When the Request is sent from Client 1 in the form of HTTP2, it arrives at the Protocol Adaptor at the API GW level, which converts all the old protocols into the new ones.
 
 __Feature # 9__
 - Monitoring
