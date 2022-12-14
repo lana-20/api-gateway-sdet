@@ -92,7 +92,7 @@ __Feature # 6__
 
 Example: In my web app I provide different videos. There are some video APIs, meaning _fast_ streaming APIs and _slow_ streaming APIs.
 
-...
+<img src="https://user-images.githubusercontent.com/70295997/207531598-d20502b6-08d5-4b1f-879e-5c8abc9d17c2.png" width=900>
 
 Client # 1 sends a Request from a Mobile device. What to do? Define Routing at the device level. When Request comes via Mobile, I need a low-quality video. The Low Quality video Microservice responds back and provides the Client with a low-quality video  on their phone (mobile device).
 
