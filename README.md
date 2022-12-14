@@ -103,7 +103,7 @@ Router defines which  route to take - Mobile or Desktop? I configure this at the
 __Feature # 7__
 - Load Balancer
 
-...
+<img src="https://user-images.githubusercontent.com/70295997/207663537-2e7a140e-f775-4329-bbf4-036afcfb34f1.png" width=900>
 
 Client sends a Request to API GW, to the Load Balancer. My Microservice (MS) is all about the /product service. I want to access the Product feature, send a Request. This feature is very popular on my app most of the time. The Request is sent to the Load Balancer. I have multiple copies of this specific MS. The majority of my crowd comes from this particular service.
 
@@ -113,7 +113,7 @@ Let's say, I made some changes to this particular MS. I create a (new) copy of t
 
 The MAANG companies do not release 100% of their traffic to the new feature or service they've created. Through the Load Balancer, 95% of the traffic goes to the 'old' one. 5% goes to the new MS. Once I verify there are no bugs in the new feature, I start increasing traffic through the Load Balancer on the API GW level.
 
-* Can also conduct A/B Testing.
+ *Can also conduct A/B Testing.
 
 __Feature # 8__
 - Protocol Adaptor
