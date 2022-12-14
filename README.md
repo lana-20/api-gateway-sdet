@@ -1,7 +1,12 @@
 # API Gateway from SDET Perspective
-## What a Test Automation Engineer should know about API GW?
+## 10 API GW features a Test Automation Engineer should know
 
 May IT employers require knowledge of API Gateway (GW), its components, monolithic or microservices architecture. An SDET should know about the role of the API GW, in terms of the cloud, local architecture setup, etc. Take an e-commerce app for example.
+
+__Feature # 1__
+- Authentication
+- Authorization
+- SSL Certification
 
 ...
 
@@ -31,12 +36,8 @@ Whatever request I send, I want it to be sent via a Secure HTTP -> HTTPS. For se
 
 Requests from a Client come through the SSL Certification at the API GW level. When the certificate is valid, the client can access the app. The advantage of SSL Certification is that the API client can only access a specific entry point with the help of whichever URL they want to access. Business Logic is segregated. For any bad actor (hacker), I actually make the app safe by defining the SSL Certification at the API GW level.
 
-
-__Feature # 1__
-- Authentication
-- Authorization
-- SSL Certification
-
+__Feature # 2__
+- Routing
 
 Let's say I deal with a Monolithic architecture. All the APIs, business logic, etc. are available under one machine/system/component. I convert my Monolithic architecture into Microservices, tiny services available for each feature. 3 segregated Microservices are available.
 
@@ -46,8 +47,8 @@ A client makes a request (via HTTPS) directly to the API GW only. When the clien
 
 The same thing happens, when a client requests the Cart APIs. When the client requests for the Cart, Routing decides that the request gets sent to the Cart API. Routing gets the response, forwards it back with the cart info. And it spins up in a form of a web [browser] app.
 
-__Feature # 2__
-- Routing
+__Feature # 3__
+- Adaptor
 
 Suppose the app is getting popular and profitable. A big crowd uses it. I offer a couple of  extra features during a holiday season: trends, deals, discounts, etc. When Client sends many requests, it can cause a delay. The more requests, the more delay.
 
@@ -60,8 +61,8 @@ Improved Diagram:
 
 Adaptor takes the Request from the Client/Device. Client sends Request to the Adaptor via one single network call. It's faster than before, when Client sent 4 different requests. Now Client sends 1 single request over the network to the API GW. The Gateway makes a number of calls, consolidates the response, then gives it back to the Client side in the form of a Response.
 
-__Feature # 3__
-- Adaptor
+__Feature # 4__
+- Static Content stored at the API GW level
 
 Let the Adaptor decide how many calls to make and to which Microservices. Not from the Client side. Client send an n-number of requests (10, 20 ... 100), the API GW decides how to send them. Client just clicks on Homepage, Trends, Deals, etc.
 
@@ -69,11 +70,10 @@ I can improve my design/diagram. I have the Static Html Homepage [Microservice],
 
 ...
 
-__Feature # 4__
-- Static Content stored at the API GW level
+__Feature #5__
+- Caching
 
 ...
-
 
 Client sends Request via API GW and gets the response back form the 'Trending Products' Miscroservice - the 50 products that are available between 10-11 am. But what if the Client send another Request at 10:10, then another at 10:15 am and 10:20 am, and so forth (multiple times until 11 am). Every time the Client sends the Request, they hit this particular Microservice and a Response back. It's unnecessary, because every time the product count remains the same. The next list of available trending product becomes available after one hour. Once this hour expires at 11 am, I get the next list with the next 50 products available.
 
@@ -83,8 +83,9 @@ This is the biggest advantage of Caching. The same Response is given back the Cl
 
 The Cache is always handled at the API GW level, not at the Business Logic/WebApp/Microservice level.
 
-__Feature #5__
-- Caching
+
+__Feature # 6__
+- Videos
 
 Example: In my web app I provide different videos. There are some video APIs, meaning _fast_ streaming APIs and _slow_ streaming APIs.
 
@@ -96,6 +97,9 @@ Client # 2 wants an API and sends a Request from a Desktop. The Router determine
 ], where HD-quality videos are available. IT responds back and routes over to the Desktop Client. Then the Desktop [browser] Client is able to view high-quality videos.
 
 Router defines which  route to take - Mobile or Desktop? I configure this at the API GW level.
+
+__Feature # 7__
+- Load Balancer
 
 ...
 
@@ -109,23 +113,21 @@ The MAANG companies do not release 100% of their traffic to the new feature or s
 
 * Can also conduct A/B Testing.
 
-__Feature # 7__
-- Load Balancer
-
+__Feature # 8__
+- Protocol Adaptor
 ...
 
 Another small feature is the Protocol Adaptor for HTTP conversion. Define Protocol Adaptor at the API GW level. MSs get Requests in the form of HTTP1 only. In my app, all the backend services can be accessed via HTTP1 protocol. When the Request is sent from Client 1 (C1) in the form of HTTP2, it arrives at the Protocol Adaprot at the API GW level, which converts all the old protocols into the new ones.
 
-__Feature # 8__
-- Protocol Adaptor
+__Feature # 9__
+- Monitoring
 
 Also, API GW provides Monitoring for stats:
 - dashboard/logs/charts
 - number of requests, types of requests I get from different clients, distinction between mobile and desktop app requests
 
-__Feature # 9__
-- Monitoring
-
+__Feature # 10__
+- Billing
 Let's say, my app got slashdotted. Some external apps now want to use my APIs. Eg, a /payment MS, which is stable and popular on the market. Other companies/web apps want to use this particular /payment API/MS.
 
 ...
@@ -138,7 +140,5 @@ Example: My /payment API got famous. My Clients' payments happen through my APIs
 
 I host the Billing service at the API GW level, in the form of the Marketplace. Different cloud vendors are available. Can determine how many calls are made by the Client, and on the basis of that generate an Invoice in Billing. I can expose my APIs and generate revenue.
 
-__Feature # 10__
-- Billing
 
 
