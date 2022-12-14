@@ -92,27 +92,53 @@ Example: In my web app I provide different videos. There are some video APIs, me
 
 Client # 1 sends a Request from a Mobile device. What to do? Define Routing at the device level. When Request comes via Mobile, I need a low-quality video. The Low Quality video Microservice responds back and provides the Client with a low-quality video  on their phone (mobile device).
 
-Client # 2 wants an API and sends a Request from a Desktop. The Router determines that the request comes from the desktop device, and the Desktop route is taken. The Router defines that desktop request should go to (call) the HD Quality content [microservice], where HD-quality videos are available. IT responds back and routes over to the Desktop Client. Then the Desktop [browser] Client is able to view high-quality videos.
+Client # 2 wants an API and sends a Request from a Desktop. The Router determines that the request comes from the desktop device, and the Desktop route is taken. The Router defines that desktop request should go to (call) the HD Quality content [
+], where HD-quality videos are available. IT responds back and routes over to the Desktop Client. Then the Desktop [browser] Client is able to view high-quality videos.
 
 Router defines which  route to take - Mobile or Desktop? I configure this at the API GW level.
+
+...
+
+Client sends a Request to API GW, to the Load Balancer. My Microservice (MS) is all about the /product service. I want to access the Product feature, send a Request. This feature is very popular on my app most of the time. The Request is sent to the Load Balancer. I have multiple copies of this specific MS. The majority of my crowd comes from this particular service.
+
+What to do? Define a Load Balancer. It sends the Request to each copy of the MS and gets the Response back. One MS does not handle (take care of) the entire load. The load is divided among multiple copies od the MSs through the Load Balancer. I can achieve this concept in a Round Robin fashion. Round robin request is sent to the MS. Per the request, a specific MS is called, and the /product can be called again and again - 1st copy, then 2nd, 3rd and so forth.
+
+Let's say, I made some changes to this particular MS. I create a (new) copy of this /product MS at deployment as the New Deploy. But I don't want to grant 100% access to the new deployment. With the Load Balancer, I can route the traffic. 5% is dedicated to the New Deploy, the new service with the new feature I've just added. With this approach, I can achieve Canary Release. 5-10% goes to the Canary Release, the rest 90-95% goes to the previous one.
+
+The MAANG companies do not release 100% of their traffic to the new feature or service they've created. Through the Load Balancer, 95% of the traffic goes to the 'old' one. 5% goes to the new MS. Once I verify there are no bugs in the new feature, I start increasing traffic through the Load Balancer on the API GW level.
+
+* Can also conduct A/B Testing.
 
 __Feature # 7__
 - Load Balancer
 
 ...
 
+Another small feature is the Protocol Adaptor for HTTP conversion. Define Protocol Adaptor at the API GW level. MSs get Requests in the form of HTTP1 only. In my app, all the backend services can be accessed via HTTP1 protocol. When the Request is sent from Client 1 (C1) in the form of HTTP2, it arrives at the Protocol Adaprot at the API GW level, which converts all the old protocols into the new ones.
+
 __Feature # 8__
 - Protocol Adaptor
 
-...
-
+Also, API GW provides Monitoring for stats:
+- dashboard/logs/charts
+- number of requests, types of requests I get from different clients, distinction between mobile and desktop app requests
 
 __Feature # 9__
 - Monitoring
 
+Let's say, my app got slashdotted. Some external apps now want to use my APIs. Eg, a /payment MS, which is stable and popular on the market. Other companies/web apps want to use this particular /payment API/MS.
+
 ...
+
+I go to a cloud of my choice. On their marketplace I define Billing at the API GW level. Eg, I have a small company, but I don't own any GW APIs, I simply send my Requests to Billing, and the API GW forwards the calls to the /payment GW APIs and back. The Billing adaptor set at the API GW level charges the Client.
+
+...
+
+Example: My /payment API got famous. My Clients' payments happen through my APIs. And whenever a client send a Request, they have to pay $5.
+
+I host the Billing service at the API GW level, in the form of the Marketplace. Different cloud vendors are available. Can determine how many calls are made by the Client, and on the basis of that generate an Invoice in Billing. I can expose my APIs and generate revenue.
 
 __Feature # 10__
 - Billing
 
-...
+
