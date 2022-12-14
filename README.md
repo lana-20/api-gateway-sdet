@@ -76,7 +76,7 @@ I can improve my design/diagram. I have the Static Html Homepage [Microservice],
 __Feature #5__
 - Caching
 
-<img src="https://user-images.githubusercontent.com/70295997/207526040-07207da7-849d-4cc0-b031-8d767221ecaf.png" width=900>
+<img src="https://user-images.githubusercontent.com/70295997/207526652-f0525106-cc98-46c7-9a8d-984bc3de9be9.png" width=900>
 
 Client sends Request via API GW and gets the response back form the 'Trending Products' Miscroservice - the 50 products that are available between 10-11 am. But what if the Client send another Request at 10:10, then another at 10:15 am and 10:20 am, and so forth (multiple times until 11 am). Every time the Client sends the Request, they hit this particular Microservice and a Response back. It's unnecessary, because every time the product count remains the same. The next list of available trending product becomes available after one hour. Once this hour expires at 11 am, I get the next list with the next 50 products available.
 
