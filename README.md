@@ -59,7 +59,8 @@ Suppose the app is getting popular and profitable. A big crowd uses it. I offer 
 I can improce this case by adding another component called __Adaptor__ at the API GW level. My developers always say thay they add the Adaptor at the API GW level. Adaptor decides how many requests to handle.
 
 Improved Diagram:
-...
+
+<img src="https://user-images.githubusercontent.com/70295997/207517297-ccf348be-c8e0-4f65-a8cd-d7673314a761.png" width=900>
 
 Adaptor takes the Request from the Client/Device. Client sends Request to the Adaptor via one single network call. It's faster than before, when Client sent 4 different requests. Now Client sends 1 single request over the network to the API GW. The Gateway makes a number of calls, consolidates the response, then gives it back to the Client side in the form of a Response.
 
