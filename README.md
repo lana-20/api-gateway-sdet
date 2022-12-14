@@ -25,7 +25,7 @@ __Authorization:__
 
 For /home and /products, I don't need any Access. Without username/password, I can hit the app and access it.
 
-<img src="https://user-images.githubusercontent.com/70295997/207506518-4da1e99e-6528-45b1-83bb-1509d90097bb.png" width=900>
+<img src="https://user-images.githubusercontent.com/70295997/207507214-08531ea8-d30b-43b1-9f8a-33940a6f5af4.png" width=900>
 
 Authentication and Authorization are not related to the app features or functionality, they are a separate thing all together.
 I move the Authentication/Authorization logic inside my API GW. It means that when a Request comes from the client/user side, firstly the user gets authorized before, eg, accessing a cart, and only then the cart API can be accessed.
