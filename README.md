@@ -71,7 +71,7 @@ Let the Adaptor decide how many calls to make and to which Microservices. Not fr
 
 I can improve my design/diagram. I have the Static Html Homepage [Microservice], which is not a part of the Business Logic. It's a simple homepage, static content. I can decommission the Static Content Html from the Microservices Web App site and define/place it at the aPI GW level. No need to call the actial app server.
 
-<img src="https://user-images.githubusercontent.com/70295997/207521070-489a3324-6873-4cc8-8f3e-0af87a31a367.png" width=900>
+<img src="https://user-images.githubusercontent.com/70295997/207521752-fb8cc46d-8b88-460c-975b-68025d231b67.png" width=900>
 
 __Feature #5__
 - Caching
