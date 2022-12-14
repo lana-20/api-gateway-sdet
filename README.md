@@ -56,7 +56,7 @@ Suppose the app is getting popular and profitable. A big crowd uses it. I offer 
 
 <img src="https://user-images.githubusercontent.com/70295997/207515462-9ddaab22-d1eb-40fc-a9a6-acec5d288986.png" width=900>
 
-I can improce this case by adding another component called __Adaptor__ at the API GW level. My developers always say thay they add the Adaptor at the API GW level. Adaptor decides how many requests to handle.
+I can improve this case by adding another component called __Adaptor__ at the API GW level. My developers always say thay they add the Adaptor at the API GW level. Adaptor decides how many requests to handle.
 
 Improved Diagram:
 
@@ -114,6 +114,14 @@ Let's say, I made some changes to this particular MS. I create a (new) copy of t
 The MAANG companies do not release 100% of their traffic to the new feature or service they've created. Through the Load Balancer, 95% of the traffic goes to the 'old' one. 5% goes to the new MS. Once I verify there are no bugs in the new feature, I start increasing traffic through the Load Balancer on the API GW level.
 
  *Can also conduct A/B Testing.
+ 
+ [Round Robin DNS](https://en.wikipedia.org/wiki/Round-robin_DNS)
+ 
+ [Canary Release](https://martinfowler.com/bliki/CanaryRelease.html)
+ 
+ [Parallel Change Pattern](https://martinfowler.com/bliki/ParallelChange.html)
+ 
+ [Postel's Law a.k.a. Robustness Principle](https://en.wikipedia.org/wiki/Robustness_principle)
 
 __Feature # 8__
 - Protocol Adaptor
@@ -130,7 +138,9 @@ Also, API GW provides Monitoring for stats:
 - number of requests, types of requests I get from different clients, distinction between mobile and desktop app requests
 
 __Feature # 10__
+
 - Billing
+
 Let's say, my app got slashdotted. Some external apps now want to use my APIs. Eg, a /payment MS, which is stable and popular on the market. Other companies/web apps want to use this particular /payment API/MS.
 
 <img src="https://user-images.githubusercontent.com/70295997/207674043-f8aa5554-097f-4814-98de-46d5c315bd32.png" width=900>
