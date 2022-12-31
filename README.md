@@ -147,7 +147,7 @@ Let's say, my app got slashdotted. Some external apps now want to use my APIs. E
 
 I go to a cloud of my choice. On their marketplace I define Billing at the API GW level. Eg, there's a small company, which doesn't own any GW APIs. It simply sends Requests to Billing, and the API GW forwards the calls to the /payment GW APIs and back. The Billing adaptor set at the API GW level charges the Client.
 
-Example: My /payment API got famous. My Clients' payments happen through my APIs. And whenever a client send a Request, they have to pay $5.
+[Monetization](...) Example: My /payment API got famous. My Clients' payments happen through my APIs. And whenever a client sends a Request, they have to pay $5.
 
 I host the Billing service at the API GW level, in the form of the Marketplace. Different cloud vendors are available. Can determine how many calls are made by the Client, and on the basis of that generate an Invoice in Billing. I can expose my APIs and generate revenue.
 
