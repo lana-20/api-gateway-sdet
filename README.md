@@ -65,7 +65,7 @@ Improved Diagram:
 Adaptor takes the Request from the Client/Device. Client sends Request to the Adaptor via one single network call. It's faster than before, when Client sent 4 different requests. Now Client sends 1 single request over the network to the API GW. The Gateway makes a number of calls, consolidates the response, then gives it back to the Client side in the form of a Response.
 
 __Feature # 4__
-- Static Content stored at the API GW level
+- [Static Content](https://en.wikipedia.org/wiki/Static_web_page) stored at the API GW level
 
 Let the Adaptor decide how many calls to make and to which Microservices. Not from the Client side. Client send an n-number of requests (10, 20 ... 100), the API GW decides how to send them. Client just clicks on Homepage, Trends, Deals, etc.
 
