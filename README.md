@@ -1,7 +1,7 @@
 # API Gateway from SDET Perspective
 ## 10 API GW features a Test Automation Engineer should know
 
-May IT employers require knowledge of API Gateway (GW), its components, monolithic or microservices architecture. An SDET should know about the role of the API GW, in terms of the cloud, local architecture setup, etc. Take an e-commerce app for example.
+IT employers require knowledge of API Gateway (GW), its components, monolithic or microservices architecture. An SDET should know about the role of the API GW, in terms of the cloud, local architecture setup, etc. Take an e-commerce app for example.
 
 __Feature # 1__
 - Authentication
